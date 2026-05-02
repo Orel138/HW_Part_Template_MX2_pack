@@ -4,7 +4,7 @@
   <name>my-hw-part</name>
   <description>Pack for the MyVendor my-hw-part 10/100 Ethernet transceiver template component.</description>
   <license>LICENSE.md</license>
-  <url>https://example.com/pack-server/</url>
+  <url>https://github.com/Orel138/HW_Part_Template_MX2_pack/raw/main/</url>
   <releases>
     <release version="1.0.0" date="2026-05-02">
       Initial template release for the my-hw-part hardware component pack.
