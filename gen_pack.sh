@@ -45,8 +45,7 @@ PACK_DIRS="
 # Default: empty
 #
 PACK_BASE_FILES="
-  LICENSE.md
-  MyVendor.my-hw-part.pdsc
+  MyVendor.myhwpart_hw-part.pdsc
 "
 
 # Specify file names to be deleted from pack build directory

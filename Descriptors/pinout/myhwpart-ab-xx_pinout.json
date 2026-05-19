@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "version": "1.0.0",
+  "pins": [
+    { "name": "SDO/SA0", "position": "1", "type": "port"                        },
+    { "name": "SDx",     "position": "2", "type": "port"                        },
+    { "name": "SCx",     "position": "3", "type": "port"                        },
+    { "name": "INT1",    "position": "4", "type": "port", "direction": "output" },
+    { "name": "Vdd_IO",  "position": "5", "type": "power_supply"                },
+    { "name": "GND",     "position": "6", "type": "power_supply"                },
+    { "name": "GND",     "position": "7", "type": "power_supply"                },
+    { "name": "Vdd",     "position": "8", "type": "power_supply"                },
+    { "name": "INT2",    "position": "9", "type": "port", "direction": "output" },
+    { "name": "OCS_Aux", "position": "10", "type": "port"                       },
+    { "name": "SDO_Aux", "position": "11", "type": "port"                       },
+    { "name": "CS",      "position": "12", "type": "port", "direction": "input" },
+    { "name": "SCL",     "position": "13", "type": "port"                       },
+    { "name": "SDA",     "position": "14", "type": "port"                       }
+  ],
+  "interfaces": [
+    {
+      "name": "I2C serial interface",
+      "type": "I2C",
+      "version": "1.0.0",
+      "condition": "(eq local.spi_i2c_mode_selection 'HIGH')",
+      "modes": [
+        {
+          "mode": "I2C Slave",
+          "parameters": { "max_speed": { "value": 1000000, "unit": "Hz" } },
+          "pins": [ { "type":  "SCL", "pin": "SCL" }, { "type": "SDA", "pin": "SDA" } ]
+        }
+      ]
+    },
+    {
+      "name": "SPI bus interface",
+      "type": "SPI",
+      "version": "1.0.0",
+      "condition": "(eq local.spi_i2c_mode_selection 'LOW')",
+      "modes": [
+        {
+          "mode": "Half-Duplex Slave",
+          "parameters": { "max_speed": { "value": 10000000, "unit": "Hz" } },
+          "pins": [ { "type": "MISO", "pin": "SDA" }, { "type": "CLK", "pin": "SCL" }, { "type": "NSS", "pin": "CS" } ]
+        },
+        {
+          "mode": "Full-Duplex Slave",
+          "parameters": { "max_speed": { "value": 10000000, "unit": "Hz" } },
+          "pins": [ { "type": "MISO", "pin": "SDA" }, { "type": "MOSI", "pin": "SDO/SA0" }, { "type": "CLK", "pin": "SCL" }, { "type": "NSS", "pin": "CS" } ]
+        }
+      ]
+    },
+    {
+      "name": "Auxiliary SPI interface",
+      "type": "SPI",
+      "version": "1.0.0",
+      "modes": [
+        {
+          "mode": "Full-Duplex Slave",
+          "parameters": { "max_speed": { "value": 10000000, "unit": "Hz" } },
+          "pins": [ { "type": "MISO", "pin": "SDx" }, { "type": "MOSI", "pin": "SDO_Aux" }, { "type": "CLK", "pin": "SCx" }, { "type": "NSS", "pin": "OCS_Aux" } ]
+        },
+        {
+          "mode": "Half-Duplex Slave",
+          "parameters": { "max_speed": { "value": 10000000, "unit": "Hz" } },
+          "pins": [ { "type": "MISO", "pin": "SDx" }, { "type": "CLK", "pin": "SCx" }, { "type": "NSS", "pin": "OCS_Aux" } ]
+        }
+      ]
+    }
+  ]
+}

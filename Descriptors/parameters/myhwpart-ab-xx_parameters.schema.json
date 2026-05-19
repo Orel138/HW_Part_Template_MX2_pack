@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "#",
+  "required": false,
+  "properties": {
+    "spi_i2c_mode_selection": {
+      "type": "string",
+      "required": true,
+      "enum": [
+        "HIGH",
+        "LOW"
+      ]
+    }
+  }
+}

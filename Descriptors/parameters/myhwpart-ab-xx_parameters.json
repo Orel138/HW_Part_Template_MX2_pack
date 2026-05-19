@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "localParameters": {
+    "@spi_i2c_mode_selection": [
+      {
+        "value": "HIGH",
+        "condition": "(or (sameLevelAs 'CS' 'Vdd') (isDisconnected 'CS'))"
+      },
+      {
+        "value": "LOW",
+        "condition": "(sameLevelAs 'CS' 'GND')"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="1.7.55" xsi:noNamespaceSchemaLocation="PACK.xsd" xmlns:stm32="https://developer.st.com/schemas/stm32cube/1.0.0" xsi:schemaLocation="https://developer.st.com/schemas/stm32cube/1.0.0 stm32cube.xsd" >
+  <vendor>MyVendor</vendor>
+  <name>myhwpart_hw-part</name>
+  <description>Pack for the MyVendor MyHwPart inertial module with digital interfaces for STM32CubeMX2 integration.</description>
+  <url>https://github.com/Orel138/HW_Part_Template_MX2_pack/raw/main/</url>
+  <releases>
+    <release version="2.0.0" date="2026-01-30">
+      Initial release
+    </release>
+  </releases>
+  <keywords>
+    <keyword>MyVendor</keyword>
+    <keyword>HW Part Pack</keyword>
+    <keyword>MyHwPart</keyword>
+    <keyword>Sensor</keyword>
+    <keyword>Accelerometer</keyword>
+    <keyword>Gyroscope</keyword>
+    <keyword>Temperature</keyword>
+  </keywords>
+  <environments>
+    <environment name="STM32Cube">
+      <stm32:pack type="HWPART" friendlyName="MyHwPart_HW_Description" shortDesc="Description of the characteristics and connectivity of the MyHwPart iNEMO inertial module">
+        <compatibility>
+          <release version="2.0.0">
+            <applicable-schema schemaType="pinout-part" schemaVersion="1.0.0"/>
+            <applicable-schema schemaType="local-parameters-schema" schemaVersion="1.0.0"/>
+            <applicable-schema schemaType="parameters" schemaVersion="1.0.0"/>
+          </release>
+        </compatibility>
+      </stm32:pack>
+    </environment>
+  </environments>
+  <parts>
+    <part Hvendor="MyVendor" Hname="MyHwPart" Hvariant="MyHwPart-AB-CD" Hclass="Interfaces and Transceivers" Hgroup="Transceivers" Hsub="Ethernet">
+      <description>MyVendor inertial MEMS module.</description>
+	  <feature type="ETH" n="1" name="10/100/1000 Ethernet Transceiver"/>
+      <feature type="TempSens" n="1"/>
+      <environment name="STM32Cube">
+        <stm32:part friendlyName="MyPart Friendly Name">
+          <descriptors>
+            <descriptor schemaType="pinout-part" path="Descriptors/pinout/myhwpart-ab-xx_pinout.json" schemaVersion="1.0.0" version="1.0.0"/>
+            <descriptor schemaType="local-parameters-schema" path="Descriptors/parameters/myhwpart-ab-xx_parameters.schema.json" schemaVersion="1.0.0" version="1.0.0"/>
+            <descriptor schemaType="parameters" path="Descriptors/parameters/myhwpart-ab-xx_parameters.json" schemaVersion="1.0.0" version="1.0.0"/>
+          </descriptors>
+        </stm32:part>
+      </environment>
+    </part>
+  </parts>
+</package>
